@@ -1,0 +1,329 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  .react-datepicker-wrapper {
+ 
+    margin: 0px !important;
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+.text_search{
+    padding:0px !important;
+  }
+  input#search_text {
+    border-radius: 8px solid #cccccc;
+    text-align: center;
+    margin: 0px 4px;
+   
+}
+div#seach_date {
+  /* height: 100%; */
+  position: absolute;
+  left: 69%;
+  top: 2%;
+  background: #fff;
+}
+.session_Box.pt-1 {
+  position: relative;
+}
+input.m.react-datepicker-ignore-onclickoutside {
+  text-align: center;
+}
+.react-datepicker__input-container input {
+  border-radius: 7px solid #cccccc;
+  text-align: center;
+}
+  
+  /* stations session css start */
+  .global_icon_size {
+    height: 22px;
+    cursor: pointer;
+  }
+  .mytooltip > .tooltip-inner {
+   font-size: 12px;
+   padding: 3px 8px;
+   padding-bottom: 4px;
+  }
+  .custom_tool_tip > .tooltip-inner {
+    font-size: 12px;
+    padding: 3px 8px;
+    padding-bottom: 4px;
+   
+    color: #ffffff;
+    border: 1px solid #c9c9c9;
+    text-align: left;
+   }
+   .custom_tool_tip a{
+  color: #fff;
+  text-decoration: none;
+   
+   }
+  
+  
+  .recent_session_header {
+    background-color: #1688ca;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+  .fs-18{
+    font-size: 18px;
+  }
+  .fs-20{
+    font-size: 20px;
+  }
+  .fs-14{
+    font-size: 14px;
+  }
+  .fs-13{
+    font-size: 13px;
+  }
+  .fs-22{
+    font-size: 22px;
+  }
+  .fs-24{
+    font-size: 24px;
+  }
+  
+  
+  .rs_user_profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+  }
+  
+  ul.session_action li {
+    display: inline-block;
+    padding-right: 8px;
+  }
+  ul.session_action img {
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+    object-fit: contain;
+  }
+  .session_listing {
+    padding: 5px 10px;
+    background: white;
+    border-bottom: 7px solid #F8F3FB;
+  }
+  .session_box{
+    box-shadow: 0 0 2px #ccc;
+  }
+  
+  .rs_comment_area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .dark_black{
+    color: #8e8c8cb3;
+  }
+  .discussions_link{
+    color: #8e8c8cb3;
+    font-weight: 600;
+  }ul.session_action a {
+    color: #7C7C7C;
+  }
+  
+  .session_listing:hover {
+    outline: 2px solid #1688ca;
+    background: #E8F0F8;
+  }
+
+  .ans_modal {
+    background-color: #e0daf8;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  .modal-header {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }.modal-content {
+    border-radius: 0px !important;
+  }.btn-close {
+    background-size: 15px !important;
+  }
+  
+  .select_station {
+    background-color: #f3f3f3;
+    margin-top: 5px;
+    position: relative;
+    padding: 4px 0px;
+  }.select_station_icon {
+    position: absolute;
+    left: 10px;
+  }
+  
+   .light_purple_title {
+    color: #603190;
+  }
+  .station_dropdown {
+   
+    max-width: 250px;
+    background: hsl(0, 0%, 100%) none repeat scroll 0 0;
+    border: 1px solid hsl(0, 0%, 78%);
+    padding-top: 0px;
+  }
+  .station_dropdown_title {
+    background-color: #c6c6c6;
+    text-align: center;
+    padding: 5px;
+  }
+  .station_dropdown ul{
+    padding: 10px !important;
+  }
+  .station_dropdown li{
+    padding-bottom: 2px;
+    padding-top: 2px;
+    list-style-type: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .station_dropdown li:hover {
+    background-color: #c6c6c6;
+  }
+  .name_of_file {
+    max-width: 250px;
+    
+  }
+  .session_file_group {
+    background-color: #c6c6c6;
+    padding: 10px;
+  }
+  
+  .name_of_file .station_dropdown_title {
+    border-bottom: 1px solid #b2b2b2;
+  }
+  
+  .max_250{
+    max-width: 250px;
+  }
+  .sesseion_file_table td {
+      font-size: 12px;
+      border: unset !important;
+  }
+  .sesseion_file_table th {
+      font-size: 12px;
+      color: #7f7f7f;
+      border: unset !important;
+  }
+  .sesseion_file_table th {
+      background-color: #cfdce7 !important;
+  }
+  .cross_system_fies {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
+  .session_system_file_title {
+    background-color: #c6c6c6;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+  }
+  .session_system_file {
+    border: 1px solid #9dc3e6;
+  }
+  
+  .sesseion_file_table tr:hover {
+  background-color:#e5eef7;}
+  
+  .green {
+    color: green;
+  }
+  .sesseion_file_table img {
+    height: 35px;
+  }
+  .right_close_btn {
+    position: absolute;
+    right: 10px;
+    top: 2.5px;
+  }.global_title_with_right_close_btn {
+   
+    position: relative;
+    padding: 5px 0px;
+  }
+  
+  .gray_bg{
+    background-color: #6ccaf666;
+  }
+  .dark_gray_bg{
+    background-color: #1688ca;
+    color: #fff;
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+  .station_action i {
+    font-size: 15px;
+  }.station_action a {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 18px;
+  }.station_action li {
+    list-style-type: none;
+    padding: 0px 2px;
+  }.station_action {
+    background-color: #bfbfbf;
+    padding: 2px 5px;
+  }
+  
+  
+  .custom_tool_tips > .tooltip-inner {
+    font-size: 12px;
+    padding: 3px 8px;
+    padding-bottom: 4px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #c9c9c9;
+    text-align: left;
+    border-radius: 0px;
+   }
+   .station_action a:hover {
+    color: #fff;
+  }
+  
+  .red_badge {
+    background-color: #ff0000;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .add_edit_station_section {
+    background-color: #fff;
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 9999;
+  }
+  /* stations session css end */
+
