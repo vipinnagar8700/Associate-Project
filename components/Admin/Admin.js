@@ -2,7 +2,7 @@ import React from 'react';
 import data from '../Admin/Admin-data';
 
 import Cookies from 'js-cookie';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 export const Admin = () => {
   let c= Cookies.get('login')
@@ -39,7 +39,7 @@ export const Admin = () => {
                         <li key={id}>
                             <a href="#">
                             <div className="menu-icon">
-                                <img src={img} className="img-fluid" alt={name} />
+                          <Link to={`${name}`} >  <img src={img} className="img-fluid" alt={name} /></Link>   
                                 <div className="icon-name">{name}</div>
                             </div>
                             </a>

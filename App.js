@@ -9,6 +9,7 @@ import MyStationDashboard from './components/Main-Dashboard/Station/MyStationDas
 import Profile from './components/AssociatesProfile/Profile';
 import Login from './components/Authorization/Login';
 import Cookies from 'js-cookie';
+import Pages from './components/Pages/Pages';
 
 
 
@@ -26,6 +27,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/admin" element={<Admin/>}/>
+        <Route path="/admin/pages" element={<Pages/>}/>
         <Route path="/station" element={<Station/>}/>
         <Route path="/MyStationDashboard" element={<MyStationDashboard/>}/>
         <Route path="/Profile" element={<Profile/>}/>

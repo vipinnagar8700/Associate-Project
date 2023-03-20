@@ -21,6 +21,7 @@ import { Icon } from "../../../Context/Sideicon";
 const MyStation = () => {
   const { iconaction,seticonaction } = useContext(Icon)
   console.log(iconaction);
+  const{event}=iconaction
   const [show, setIsShown] = useState(false);
   const [option, setOption] = useState(false);
   const [form, setForm] = useState(false);
@@ -32,6 +33,9 @@ const MyStation = () => {
   const [stationFile, setStationFile] = useState(false);  
   useEffect(()=>{
 seticonaction({...iconaction,editstation:currentStation,aeditstation:currentstation})
+  },[event])
+  useEffect(()=>{
+seticonaction({...iconaction, actionstationfile: setchangestation, stationfile:changestation})
   },[iconaction.event])
  
   let datas=[

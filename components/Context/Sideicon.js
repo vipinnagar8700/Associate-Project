@@ -1,6 +1,6 @@
 import { useState,useContext,createContext } from "react";
 export const  Icon= createContext()
-
+  
 export  const Iconprovider=({children})=>{
     const[iconaction,seticonaction]=useState({
         event:false,
@@ -9,11 +9,14 @@ export  const Iconprovider=({children})=>{
         editstation:false,
         aeditstation:false,
         addsession:false,
+        actionstationfile:false,
         stationfile:false,
         mystation:false,
         direcrtsesion:false,
         fullscrenview:false,
-        search:false
+        search:false,
+        actionsearch:false,
+        messageoption:false
     })
     return (<Icon.Provider value={{iconaction,seticonaction}}>{children}</Icon.Provider>)
 }

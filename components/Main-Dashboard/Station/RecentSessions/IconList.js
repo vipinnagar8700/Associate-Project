@@ -14,11 +14,13 @@ const Iconstyle = createGlobalStyle`
 
 
 const IconList = () => {
+    let global=true;
     const {sessionform,setsessionform} = useContext( Sessionform);
     const{ modalShow,id}=sessionform
     const { iconaction,seticonaction } = useContext(Icon)
-    const{aeditstation}=iconaction
-  console.log(iconaction.addstation,"wjebrfkgut3,",iconaction.station);
+    const{aeditstation,  stationfile,search,  actionsearch, messageoption,event}=iconaction
+    console.log(stationfile,"stattion file");
+  console.log(iconaction.addstation,"wjebrfkgut3,",event,"event",iconaction.station,search,"dhf","messaheoption", messageoption);
   return (
     <div>
         <List className='profile_icon' sx={{backgroundColor:'#fff',mt:1}}>
@@ -33,8 +35,11 @@ const IconList = () => {
             <ListItem sx={{padding:'0'}}>
                 <ListItemButton>
                 <img src='./img/associate_icon2.png' onClick={(e)=>{
-                    iconaction.editstation(!aeditstation)
-                    seticonaction({...iconaction,event:e}) 
+                       seticonaction({...iconaction,event:e}) 
+                  
+                        iconaction.aeditstation(true)
+                    
+                 
                 }}/>
                 </ListItemButton>
             </ListItem>
@@ -55,7 +60,9 @@ const IconList = () => {
             </ListItem>
             <ListItem sx={{padding:'0'}}>
                 <ListItemButton>
-                <img src='./img/associate_icon6.png'/>
+                <img src='./img/associate_icon6.png' onClick={(e)=>{iconaction.actionstationfile(true)
+                   seticonaction({...iconaction,event:e}) 
+                }}/>
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
@@ -75,17 +82,33 @@ const IconList = () => {
             </ListItem>
             <ListItem sx={{padding:'0'}}>
                 <ListItemButton>
-                <img src='./img/associate_icon10.png'/>
+                <img src='./img/associate_icon10.png'onClick={(e)=>{ 
+                     seticonaction({...iconaction,event:e}) 
+                    actionsearch( (search)=>{
+                        if(search){
+                            console.log(search,"inside the search");
+                            return false;
+                        }else{
+                            return true
+                        }
+                    })
+                
+                }}/>
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
                 <ListItemButton>
-                <img src='./img/associate_icon11.png'/>
+                <img src='./img/associate_icon11.png'onClick={()=>alert("Please check off Priority Box on Station")}/>
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
                 <ListItemButton>
-                <img src='./img/associate_icon11.png'/>
+                <img src='./img/associate_icon11.png' onClick={()=>seticonaction((iconaction)=>{
+                if(iconaction.messageoption ===true){
+                  return{...iconaction,messageoption:false}
+                }
+                return{...iconaction,messageoption:true}
+                })}/>
                 </ListItemButton>
             </ListItem>
         </List>

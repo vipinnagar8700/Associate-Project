@@ -40,6 +40,13 @@ div#seach_date {
   top: 2%;
   background: #fff;
 }
+.icon_action{
+ height: fit-content;
+  top:25%;
+  left: 10%;
+  position: absolute;
+
+}
 .session_Box.pt-1 {
   position: relative;
 }

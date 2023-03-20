@@ -12,19 +12,25 @@ import { Link, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
+import AddIcon from '@mui/icons-material/Add';
 import { height } from "@mui/system";
 import DatePicker from "react-datepicker";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import "react-datepicker/dist/react-datepicker.css";
 import { Sessionform } from "../../../Context/Session";
+import { Icon } from "../../../Context/Sideicon";
 
-
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 
 function RecentSessions() {
   const {sessionform,setsessionform} = useContext( Sessionform);
   const{ modalShow,id}=sessionform
+  const { iconaction,seticonaction} = useContext(Icon)
+  console.log(iconaction);
+  const{search ,messageoption }=iconaction
  
   const [startDate, setStartDate] = useState(new Date());
   console.log(startDate);
@@ -38,10 +44,15 @@ function RecentSessions() {
   })
 
   },[])
+  useEffect(()=>{
+seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
+  },[iconaction.event])
+
   const [openicon , setOpenIcon]= useState(false)
   console.log(startDate,"hsvydfwy");
   return (
     <>
+   
       <div className="session_box">
         <div className="recent_session_header d-flex align-items-center justify-content-between">
           <div className="left_session_icons d-flex align-items-center">
@@ -126,6 +137,28 @@ function RecentSessions() {
         </div>
 
         <div class="session_Box pt-1">
+       { messageoption &&  <Box width="45%" height="fit-content" sx={{ backgroundColor:"#fff",boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 15px"}} className="icon_action">
+      <Stack direction="row" sx={{display:'flex',justifyContent:'center', padding:'5px'}}>
+         <Typography>Messaging options</Typography>
+       </Stack>
+    <Stack direction="column" sx={{padding:'20px'}}>
+     
+    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse", justifyContent:'space-between',alignItems:'center', fontSize:'8px' }} label="Show only Session Messaging"control={<Checkbox defaultChecked />}  />
+    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse" , justifyContent:'space-between',alignItems:'center' }} label="Show icons on sub headers"control={<Checkbox defaultChecked />}  />
+    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse" , justifyContent:'space-between',alignItems:'center'}} label="Add a Station"control={<AddIcon 
+    sx={{marginRight:"10px"}} onClick={(e)=>{iconaction.addstation((value)=>{
+      if(value==true) return false;
+      return true;
+    })
+      seticonaction({...iconaction,event:e})} }
+    
+    />}  />
+ 
+    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse", justifyContent:'space-between',alignItems:'center' }} label="Leave Actions Menu open"control={<Checkbox defaultChecked />}  />
+    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse", justifyContent:'space-between',alignItems:'center' }} label="Display Priority and Option Menu"control={<Checkbox defaultChecked />}  />
+    
+    </Stack>
+    </Box>}
        {
         seachon &&  <Box sx={{ width: '30%'}} id="seach_date">
         <Stack spacing={2} direction="column" justifyContent="center" sx={{border:"0.5px solid #cdcdcd"}}>
@@ -145,6 +178,7 @@ function RecentSessions() {
       </Stack>
         </Stack>
       </Box>
+      
   
        }
         {RecentSessionsData.map((sessionData) => {
@@ -306,10 +340,12 @@ const formattedDate = `${day}/${month}/${year}`;
                     </div>
                   </div>
                 </Col>
+             
               </Row>
             </div>
           );
         })}
+        
         </div>
 
         {/* <div className='session_listing'>
