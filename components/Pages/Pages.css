@@ -1,38 +1,51 @@
 .MuiInputBase-input  {
-    background: #ffffff;
+  background: #ffffff;
 
-  }
-  
-  .MuiTextField-root {
-    background: #ffffff;
-  }
-  .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
-    margin: 10px 40px !important;
- 
+}
+
+.MuiTextField-root {
+  background: #ffffff;
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  margin: 10px 40px !important;
+
 }
 .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  height: 40px !important;
-  border-radius: 2px !important;
+font-family: "Roboto","Helvetica","Arial",sans-serif;
+height: 40px !important;
+border-radius: 2px !important;
 }
 .MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
-  border-radius: 10px;
+border-radius: 10px;
 }
 h6 {
-  margin: 20px;
+margin: 20px;
 }
 th {
-  background-color: #eeeeee;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 14px;
+background-color: #eeeeee;
+color: #fff;
+text-transform: uppercase;
+font-size: 14px;
 }
 table, tr, td, th {
-  border: 0px solid grey !important;
-  border-collapse: collapse !important;
+border: 0px solid grey !important;
+border-collapse: collapse !important;
+}
+.dropdown-menu.show {
+min-height: 400px;
+background-color: #fff;
+overflow-y: scroll;
+min-width: 250px;
+}
+.IconButton{
+cursor: pointer !important;
+}
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiPaper-root.MuiMenu-paper.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+
+}
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiPaper-root.MuiMenu-paper.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+left: 0px !important;
 }
 
 
 
-
-  

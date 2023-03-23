@@ -10,6 +10,10 @@ import Profile from './components/AssociatesProfile/Profile';
 import Login from './components/Authorization/Login';
 import Cookies from 'js-cookie';
 import Pages from './components/Pages/Pages';
+import { Addpage } from './components/Pages/Addpage';
+import { Editpage } from './components/Pages/Editpage';
+import{Allgroups }from './Station/Allgroups';
+
 
 
 
@@ -28,6 +32,9 @@ function App() {
       <Routes>
         <Route path="/admin" element={<Admin/>}/>
         <Route path="/admin/pages" element={<Pages/>}/>
+        <Route path="/admin/Stations" element={<Allgroups/>}/>
+        <Route path="/admin/pages/add" element={<Addpage/>}/>
+        <Route path="/admin/pages/edit/:id" element={<Editpage/>}/>
         <Route path="/station" element={<Station/>}/>
         <Route path="/MyStationDashboard" element={<MyStationDashboard/>}/>
         <Route path="/Profile" element={<Profile/>}/>

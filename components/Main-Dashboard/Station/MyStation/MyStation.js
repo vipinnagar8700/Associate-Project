@@ -21,7 +21,7 @@ import { Icon } from "../../../Context/Sideicon";
 const MyStation = () => {
   const { iconaction,seticonaction } = useContext(Icon)
   console.log(iconaction);
-  const{event}=iconaction
+  const{event, showiconsubheader,countvalue}=iconaction
   const [show, setIsShown] = useState(false);
   const [option, setOption] = useState(false);
   const [form, setForm] = useState(false);
@@ -32,8 +32,9 @@ const MyStation = () => {
 
   const [stationFile, setStationFile] = useState(false);  
   useEffect(()=>{
-seticonaction({...iconaction,editstation:currentStation,aeditstation:currentstation})
-  },[event])
+    
+seticonaction({...iconaction,editstation:currentstation,aeditstation:currentStation})
+  },[countvalue])
   useEffect(()=>{
 seticonaction({...iconaction, actionstationfile: setchangestation, stationfile:changestation})
   },[iconaction.event])
@@ -78,18 +79,18 @@ console.log(width)
                   <li>
                      <Tooltip title="Station File">
                     <a>
-                      <img src="./img/upload-white.png" onClick={()=>{
+                   {  showiconsubheader &&  <img src="./img/upload-white.png" onClick={()=>{
                         setchangestation(!changestation)
                         setStationFile(false)
                        }}
-                        />
+                        />}
                     </a>
                   </Tooltip>
                   </li>
                   <li>
                   <Tooltip title="Station Board">
                     <a>
-                      <img src="./img/mystation2-white.png" />
+                    { showiconsubheader &&  <img src="./img/mystation2-white.png" />}
                     </a>
                   </Tooltip>
                   </li>
@@ -102,16 +103,16 @@ console.log(width)
                   <Tooltip title="Add/Edit Station">
                     <a>
                       
-                      <img src="./img/station-icon3.png"  onClick={()=>{
+                 {  showiconsubheader&&  <img src="./img/station-icon3.png"  onClick={()=>{
                         currentStation(!currentstation)
-                      }}/>
+                      }}/>}
                     </a>
                     </Tooltip>
                   </li>
-                  <li>
+              {   showiconsubheader &&    <li>
                  
                     <a>
-                    {
+                        {  showiconsubheader &&  
                   stationFile?<Tooltip title="Back to Huddle"><img src="./img/station-icon2.png" onClick={()=>{
                     setchangestation(false)
                     setStationFile(!stationFile)
@@ -122,7 +123,7 @@ console.log(width)
                 }
 
                     </a>
-                  </li>
+                  </li>}
                 </ul>
               </div>
             </div>

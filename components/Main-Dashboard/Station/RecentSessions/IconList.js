@@ -1,6 +1,6 @@
 import { List, ListItem, ListItemButton, ListItemIcon } from '@mui/material'
 import{createGlobalStyle} from 'styled-components'
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import { Icon } from '../../../Context/Sideicon';
 import { Sessionform } from '../../../Context/Session';
 
@@ -15,12 +15,13 @@ const Iconstyle = createGlobalStyle`
 
 const IconList = () => {
     let global=true;
+    const[cvalue,setcvalue]=useState(0)
     const {sessionform,setsessionform} = useContext( Sessionform);
     const{ modalShow,id}=sessionform
     const { iconaction,seticonaction } = useContext(Icon)
-    const{aeditstation,  stationfile,search,  actionsearch, messageoption,event}=iconaction
+    const{aeditstation,  stationfile,search,  actionsearch, messageoption,event,countvalue,editstation}=iconaction
     console.log(stationfile,"stattion file");
-  console.log(iconaction.addstation,"wjebrfkgut3,",event,"event",iconaction.station,search,"dhf","messaheoption", messageoption);
+  console.log(aeditstation,"aaaaaaaaaaaaaaaaaaaa","wjebrfkgut3,",event,"event",iconaction.station,search,"dhf","messaheoption", messageoption);
   return (
     <div>
         <List className='profile_icon' sx={{backgroundColor:'#fff',mt:1}}>
@@ -28,16 +29,32 @@ const IconList = () => {
             
             <ListItem sx={{padding:'0'}}>
                 <ListItemButton>
-                    <img src='./img/associate_icon1.png' onClick={(e)=>{iconaction.addstation(!iconaction.station)
-                   seticonaction({...iconaction,event:e})    }   }/>
+                    <img src='./img/associate_icon1.png' onClick={(e)=>{
+                        setcvalue((value)=>{
+                          return value+1;
+                        })
+                    
+                      
+                   seticonaction({...iconaction,countvalue:cvalue})   
+                   iconaction.addstation((value)=>{
+                    if(value===true) {
+                        return false
+                    }
+                    return true
+                   })
+                   }   }/>
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
                 <ListItemButton>
                 <img src='./img/associate_icon2.png' onClick={(e)=>{
-                       seticonaction({...iconaction,event:e}) 
+                       setcvalue((value)=>{
+                        return value+1;
+                      })
+                    
+                      seticonaction({...iconaction,countvalue:cvalue})   
                   
-                        iconaction.aeditstation(true)
+                        iconaction.aeditstation(!editstation)
                     
                  
                 }}/>

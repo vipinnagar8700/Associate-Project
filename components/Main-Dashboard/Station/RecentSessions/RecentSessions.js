@@ -30,7 +30,7 @@ function RecentSessions() {
   const{ modalShow,id}=sessionform
   const { iconaction,seticonaction} = useContext(Icon)
   console.log(iconaction);
-  const{search ,messageoption }=iconaction
+  const{search ,messageoption , showiconsubheader, leaveactionmenu,actionsearch,SessionMessaging}=iconaction
  
   const [startDate, setStartDate] = useState(new Date());
   console.log(startDate);
@@ -62,29 +62,29 @@ seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
                   src="img/dot-menu.png"
                   className="global_icon_size cursor-pointer"
                   alt=""
-                  onClick={()=>{setOpenIcon(! openicon)}}
+                  onClick={()=>{seticonaction(({ leaveactionmenu})=>{
+                    if(leaveactionmenu===true){
+                      return {...iconaction, leaveactionmenu:false}
+                    }
+                    return {...iconaction, leaveactionmenu:true} 
+                  })}}
                  />
-                 {openicon &&
+                 {leaveactionmenu &&
                   <IconList/>
                  }
               
             </div>
             <div className="priority_session">
-              <OverlayTrigger
-                delay={{ show: 250, hide: 300 }}
-                overlay={(props) => (
-                  <Tooltip {...props} className="mytooltip">
-                    My Priority Sessions
-                  </Tooltip>
-                )}
-                placement="bottom"
-              >
-                <img
+           
+                  
+              
+              {  showiconsubheader && <img
                   src="img/blank_star.png"
                   className="global_icon_size cursor-pointer"
                   alt=""
                 />
-              </OverlayTrigger>
+              }
+             
             </div>
           </div>
           <div className="recenet_session_title">
@@ -93,43 +93,27 @@ seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
           <div className="recent_session_right_action">
             <div className="d-flex align-item-center">
               <div className="add_new_session pe-3">
-                <OverlayTrigger
-                  delay={{ show: 250, hide: 300 }}
-                  overlay={(props) => (
-                    <Tooltip {...props} className="mytooltip">
-                      Add New Sessions
-                    </Tooltip>
-                  )}
-                  placement="bottom"
-                >
-                  <img
+              
+               {   showiconsubheader && <img
                     onClick={()=>setsessionform({...sessionform,modalShow:true})}
                     src="img/add_icon.png"
                     className="global_icon_size cursor-pointer"
                     alt="wd"
                   
-                  />
-                </OverlayTrigger>
+                  />}
+               
               </div>
 
               <div className="search_session">
-                <OverlayTrigger
-                  delay={{ show: 250, hide: 300 }}
-                  overlay={(props) => (
-                    <Tooltip {...props} className="mytooltip">
-                      Search
-                    </Tooltip>
-                  )}
-                  placement="bottom"
-                >
-                  <img
+                
+              {  showiconsubheader &&    <img
                     src="img/search_icon.png"
                     className="global_icon_size cursor-pointer"
                     alt="search"
                     onClick={()=>{setseachon(!seachon)}}
 
-                  />
-                </OverlayTrigger>
+                  />}
+               
                
               </div>
             </div>
@@ -143,8 +127,22 @@ seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
        </Stack>
     <Stack direction="column" sx={{padding:'20px'}}>
      
-    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse", justifyContent:'space-between',alignItems:'center', fontSize:'8px' }} label="Show only Session Messaging"control={<Checkbox defaultChecked />}  />
-    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse" , justifyContent:'space-between',alignItems:'center' }} label="Show icons on sub headers"control={<Checkbox defaultChecked />}  />
+    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse", justifyContent:'space-between',alignItems:'center', fontSize:'8px' }} label="Show only Session Messaging"control={<Checkbox Checked onClick={()=>{
+      seticonaction(( { SessionMessaging}  )=>{
+        if( SessionMessaging===false){
+          return {...iconaction,  SessionMessaging:true}
+        }
+        return {...iconaction,  SessionMessaging:false}
+      })
+    }} />}  />
+    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse" , justifyContent:'space-between',alignItems:'center' }} label="Show icons on sub headers"control={<Checkbox Checked  onClick={()=>{
+      seticonaction(( {showiconsubheader}  )=>{
+        if(showiconsubheader===false){
+          return {...iconaction, showiconsubheader:true}
+        }
+        return {...iconaction, showiconsubheader:false}
+      })
+    }}/>}  />
     <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse" , justifyContent:'space-between',alignItems:'center'}} label="Add a Station"control={<AddIcon 
     sx={{marginRight:"10px"}} onClick={(e)=>{iconaction.addstation((value)=>{
       if(value==true) return false;
@@ -154,13 +152,23 @@ seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
     
     />}  />
  
-    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse", justifyContent:'space-between',alignItems:'center' }} label="Leave Actions Menu open"control={<Checkbox defaultChecked />}  />
-    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse", justifyContent:'space-between',alignItems:'center' }} label="Display Priority and Option Menu"control={<Checkbox defaultChecked />}  />
+    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse", justifyContent:'space-between',alignItems:'center' }} label="Leave Actions Menu open"control={<Checkbox unChecked    onClick={()=>{seticonaction(({ leaveactionmenu})=>{
+                    if(leaveactionmenu===true){
+                      return {...iconaction, leaveactionmenu:false}
+                    }
+                    return {...iconaction, leaveactionmenu:true} 
+                  })}} />}  />
+    <FormControlLabel  sx={{display:'flex',flexDirection:"row-reverse", justifyContent:'space-between',alignItems:'center' }} label="Display Priority and Option Menu"control={<Checkbox Checked   onClick={()=>{seticonaction(({ displayprority})=>{
+                    if(displayprority===true){
+                      return {...iconaction,displayprority:false}
+                    }
+                    return {...iconaction, displayprority:true} 
+                  })}}/>}  />
     
     </Stack>
     </Box>}
        {
-        seachon &&  <Box sx={{ width: '30%'}} id="seach_date">
+          seachon &&  <Box sx={{ width: '30%'}} id="seach_date">
         <Stack spacing={2} direction="column" justifyContent="center" sx={{border:"0.5px solid #cdcdcd"}}>
       <Box sx={{backgroundColor:'#1688ca' ,height:'40%', padding:'10px' ,textAlign:'center'}}> 
       <Typography sx={{color:"#fff"}} variant='h6'> Search</Typography>  </Box>
