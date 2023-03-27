@@ -2,6 +2,8 @@ import React, { useEffect, useState ,useContext} from "react";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { Row, Col } from "react-bootstrap";
+import { Document, Page } from 'react-pdf';
+import Collapse from '@mui/material/Collapse';
 // import DisplayAddNewSessionModal from './AddNewSession';
 import "./RecentSessions.css";
 import RecentSessionsData from "./RecentSessionsData";
@@ -23,6 +25,7 @@ import { Icon } from "../../../Context/Sideicon";
 
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import Imageview from "./Imageview";
 
 
 function RecentSessions() {
@@ -37,6 +40,8 @@ function RecentSessions() {
   var date=new Date()
   const[RecentSessionsData,setRecentSessionsData]=useState([])
   const[seachon,setseachon]=useState(false)
+  const [open, setOpen] = useState(false);
+  const [Imageviewfile, setOpenImageviewfile] = useState(null);
   useEffect(()=>{
   let alldata=  RecentSes()
   alldata.then((data)=>{
@@ -121,7 +126,9 @@ seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
         </div>
 
         <div class="session_Box pt-1">
-       { messageoption &&  <Box width="45%" height="fit-content" sx={{ backgroundColor:"#fff",boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 15px"}} className="icon_action">
+       { messageoption && 
+       
+       <Box width="45%" height="fit-content" sx={{ backgroundColor:"#fff",boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 15px"}} className="icon_action">
       <Stack direction="row" sx={{display:'flex',justifyContent:'center', padding:'5px'}}>
          <Typography>Messaging options</Typography>
        </Stack>
@@ -168,7 +175,9 @@ seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
     </Stack>
     </Box>}
        {
-          seachon &&  <Box sx={{ width: '30%'}} id="seach_date">
+        
+          <Collapse in={seachon}  orientation="vertical"  sx={{ width: '30%'}} id="seach_date" style={{transitionTimingFunction:'linear' }}>
+         
         <Stack spacing={2} direction="column" justifyContent="center" sx={{border:"0.5px solid #cdcdcd"}}>
       <Box sx={{backgroundColor:'#1688ca' ,height:'40%', padding:'10px' ,textAlign:'center'}}> 
       <Typography sx={{color:"#fff"}} variant='h6'> Search</Typography>  </Box>
@@ -185,13 +194,21 @@ seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
       
       </Stack>
         </Stack>
-      </Box>
       
-  
+      
+      
+      </Collapse>
+          
        }
+       <Box>  {
+          open && <Imageview  open={open} setOpen={setOpen} Imageviewfile={Imageviewfile}/>
+        }</Box>
         {RecentSessionsData.map((sessionData) => {
+          console.log(sessionData,"efiefie");
             const {id,textbox,file,station,created_at,session_associate
             }=sessionData
+            const parts = file.split(".");
+          
             const dateObj = new Date(created_at);
 
 // Format the date and time values
@@ -199,7 +216,9 @@ const year = dateObj.getFullYear();
 const month = dateObj.getMonth() + 1;
 const day = dateObj.getDate();
 const formattedDate = `${day}/${month}/${year}`;
-
+       let viewer
+       console.log(parts[1],"format");
+     
 
            const{name}= session_associate[0]
            console.log(sessionData); 
@@ -313,13 +332,44 @@ const formattedDate = `${day}/${month}/${year}`;
                     )}
                     placement="right"
                   >
-                    <a href="">
-                      <img
-                        src={`https://assoc.studiomyraa.com/public/uploads/images/${file}`}
-                        className="img-fluid cursor-pointer"
-                        alt=""
-                      />
-                    </a>
+                 {file && (
+        <div>
+          {parts[1]==="jpg"  && (
+             <img
+             src={`https://assoc.studiomyraa.com/public/uploads/images/${file}`}
+             className="img-fluid cursor-pointer"
+             alt=""
+             onClick={()=>{
+              setOpen(!open)
+              setOpenImageviewfile(file)
+             }}
+           />
+          )}
+            {parts[1]==="gif"  && (
+             <img
+             src={`https://assoc.studiomyraa.com/public/uploads/images/${file}`}
+             className="img-fluid cursor-pointer"
+             alt=""
+             onClick={()=>{
+              setOpen(!open)
+              setOpenImageviewfile(file)
+             }}
+           />
+          )}
+          {parts[1] === 'pdf' && (
+            <img src="https://app.associatenetwork.com/images/docicons/pdf.png"  className="img-fluid cursor-pointer"
+            alt=""
+              onClick={()=>{
+              setOpen(!open)
+              setOpenImageviewfile(file)
+             }}
+            />
+
+          )}
+          {/* Add more conditionals for other file types here */}
+        </div>
+      )}
+                 
                   </OverlayTrigger>
                 </Col>
                 <Col md={8}>
