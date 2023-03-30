@@ -13,6 +13,8 @@ import Pages from './components/Pages/Pages';
 import { Addpage } from './components/Pages/Addpage';
 import { Editpage } from './components/Pages/Editpage';
 import{Allgroups }from './Station/Allgroups';
+import Discussion from './Station_Discussion/Discussion';
+import Singlediscuss from './Station_Discussion/Singlediscuss';
 
 
 
@@ -36,6 +38,8 @@ function App() {
         <Route path="/admin/pages/add" element={<Addpage/>}/>
         <Route path="/admin/pages/edit/:id" element={<Editpage/>}/>
         <Route path="/station" element={<Station/>}/>
+        <Route path="/discussion" element={<Discussion/>}/>
+        <Route path="/discussion/:id" element={<Singlediscuss/>}/>
         <Route path="/MyStationDashboard" element={<MyStationDashboard/>}/>
         <Route path="/Profile" element={<Profile/>}/>
         <Route path="/login" element={<Login/>}/>        

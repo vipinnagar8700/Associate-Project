@@ -74,7 +74,7 @@ export default function Imageview({ setOpen, open, Imageviewfile }) {
                 position: "relative",
                 display: "flex",
                 justifyContent: "start",
-                border: "2px solid red",
+             
               }}
             >
               {newfile === "pdf" ? (

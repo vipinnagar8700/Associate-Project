@@ -8,7 +8,7 @@ import Collapse from '@mui/material/Collapse';
 import "./RecentSessions.css";
 import RecentSessionsData from "./RecentSessionsData";
 import axios from "axios";
-import { RecentSes } from "../../../../Api/Session";
+import { RecentSes, Searchdate } from "../../../../Api/Session";
 import IconList from "./IconList";
 import { Link, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
@@ -22,7 +22,7 @@ import Button from '@mui/material/Button';
 import "react-datepicker/dist/react-datepicker.css";
 import { Sessionform } from "../../../Context/Session";
 import { Icon } from "../../../Context/Sideicon";
-
+import moment from 'moment'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Imageview from "./Imageview";
@@ -35,8 +35,18 @@ function RecentSessions() {
   console.log(iconaction);
   const{search ,messageoption , showiconsubheader, leaveactionmenu,actionsearch,SessionMessaging}=iconaction
  
-  const [startDate, setStartDate] = useState(new Date());
-  console.log(startDate);
+  const [startDate, setStartDate] = useState();
+  const [endDate, endStartDate] = useState();
+  const[searchtext,setsearchtext]=useState('')
+  let Start =moment(startDate).format('L')
+  let End =moment(endDate).format('L')
+ 
+   
+   
+  
+  console.log(endDate);
+  
+
   var date=new Date()
   const[RecentSessionsData,setRecentSessionsData]=useState([])
   const[seachon,setseachon]=useState(false)
@@ -49,12 +59,18 @@ function RecentSessions() {
   })
 
   },[])
+
   useEffect(()=>{
 seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
   },[iconaction.event])
-
+if(searchtext && End && Start){
+    Searchdate(Start,End,searchtext).then((sdata)=>{
+   console.log(sdata.data);
+   setRecentSessionsData(sdata.data)
+    })
+   }
   const [openicon , setOpenIcon]= useState(false)
-  console.log(startDate,"hsvydfwy");
+  
   return (
     <>
    
@@ -186,8 +202,8 @@ seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
       <DatePicker placeholderText="From Date"  className="m" sx={{ backgroundColor:"#fff"}}selected={startDate} onChange={(date) => setStartDate(date)} />
         
        
-      <DatePicker placeholderText="To Date" sx={{ backgroundColor:"#fff"}}selected={startDate} onChange={(date) => setStartDate(date)} />
-      <input type='text' id="search_text"  placeholder="Search"/>
+      <DatePicker placeholderText="To Date" sx={{ backgroundColor:"#fff"}} selected={endDate} onChange={(date) => endStartDate(date)} />
+      <input type='text' id="search_text" value={searchtext}  onChange={(e)=>setsearchtext(e.target.value)}  placeholder="Search"/>
       <Box sx={{width:"100%",display:"flex",justifyContent:'center',alignItems:"center",marginBottom:"10px"}}>
       <Button  variant="contained" sx={{fontSize:"10px", justifyContent:'center',backgroundClip:'red'}}>Search</Button>
       </Box>
@@ -203,7 +219,7 @@ seticonaction({...iconaction,search:seachon,actionsearch:setseachon})
        <Box>  {
           open && <Imageview  open={open} setOpen={setOpen} Imageviewfile={Imageviewfile}/>
         }</Box>
-        {RecentSessionsData.map((sessionData) => {
+        {RecentSessionsData.length >0 &&  RecentSessionsData.map((sessionData) => {
           console.log(sessionData,"efiefie");
             const {id,textbox,file,station,created_at,session_associate
             }=sessionData
