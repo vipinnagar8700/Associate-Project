@@ -5,12 +5,13 @@ import StationProvider from './components/Context/Stationform';
 import  SessionProvider from './components/Context/Session';
 import reportWebVitals from './reportWebVitals';
 import Iconprovider from './components/Context/Sideicon';
-
+import Count from './components/Context/Count';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
 <div>
+<Count>
    <Iconprovider>
     <StationProvider>
     <SessionProvider>
@@ -18,7 +19,7 @@ root.render(
     </SessionProvider>
     </StationProvider>
     </Iconprovider>
-  
+    </Count>
 </div>
 );
 

@@ -1,5 +1,9 @@
+import { getlocalstore } from "../../Helper/localsStroage";
 import "./Header.css"
 function NavigationNav() {
+  let {image}= getlocalstore('login')
+
+
   return (
     <header>
   <nav className="navbar navbar-expand-lg navbar-light bg-white">
@@ -338,7 +342,7 @@ function NavigationNav() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <img src="img/john.jpg" className="img-fluid me-1" />
+              <img src={`https://assoc.studiomyraa.com/public/uploads/images/${image}`} className="img-fluid me-1" />
             </a>
             <ul className="dropdown-menu" aria-labelledby="John-dropdown">
               <li>

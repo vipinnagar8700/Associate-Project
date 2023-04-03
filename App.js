@@ -15,6 +15,8 @@ import { Editpage } from './components/Pages/Editpage';
 import{Allgroups }from './Station/Allgroups';
 import Discussion from './Station_Discussion/Discussion';
 import Singlediscuss from './Station_Discussion/Singlediscuss';
+import AllAssociates from './Associate/AllAssociates';
+import Count from './components/Context/Count';
 
 
 
@@ -29,7 +31,8 @@ function App() {
  <div>
 
     {/* <TextStyle/> */}
-   <Header/>   
+   <Header/>  
+   
     <Router>
       <Routes>
         <Route path="/admin" element={<Admin/>}/>
@@ -42,6 +45,7 @@ function App() {
         <Route path="/discussion/:id" element={<Singlediscuss/>}/>
         <Route path="/MyStationDashboard" element={<MyStationDashboard/>}/>
         <Route path="/Profile" element={<Profile/>}/>
+        <Route path="/Associate" element={<AllAssociates/>}/>
         <Route path="/login" element={<Login/>}/>        
       </Routes>
     </Router>

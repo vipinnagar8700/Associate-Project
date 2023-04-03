@@ -14,8 +14,8 @@ formdata.append("file", filehuddle,filehuddle.name);
 formdata.append("record", VIDEO,VIDEO.name);
 let cookie= Cookies.get('login')
  
-  let headers = {
-  "Authorization": cookie
+let headers = {
+  "Authorization": `Bearer ${cookie}`
 }
 var requestOptions = {
   method: 'POST',
@@ -30,9 +30,8 @@ var requestOptions = {
 }
 export const gethuddle=()=>{
  let cookie= Cookies.get('login')
- 
-  let headers = {
-  "Authorization": cookie
+ let headers = {
+  "Authorization": `Bearer ${cookie}`
 }
    return  axios.get('https://assoc.studiomyraa.com/api/huddle',{headers}).then((data)=>{
     console.log(data.data.results.data);

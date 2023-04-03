@@ -26,6 +26,7 @@ import moment from 'moment'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Imageview from "./Imageview";
+import { Session } from "../../../Context/Count";
 
 
 function RecentSessions() {
@@ -52,10 +53,13 @@ function RecentSessions() {
   const[seachon,setseachon]=useState(false)
   const [open, setOpen] = useState(false);
   const [Imageviewfile, setOpenImageviewfile] = useState(null);
+   let {sessionapi,setsessionapi}=useContext(Session)
+  
   useEffect(()=>{
   let alldata=  RecentSes()
   alldata.then((data)=>{
     setRecentSessionsData(data)
+    setsessionapi(data)
   })
 
   },[])
