@@ -27,7 +27,8 @@ p{
     text-decoration-thickness: 1px;
 }
 .Station-head img{
-    max-width: 20px;
+    height: 38px;
+    max-width: 40px;
 }
 .Station-head ul li{
     display: inline-block;

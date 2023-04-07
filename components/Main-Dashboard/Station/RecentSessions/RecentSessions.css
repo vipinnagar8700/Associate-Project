@@ -60,7 +60,7 @@ input.m.react-datepicker-ignore-onclickoutside {
   
   /* stations session css start */
   .global_icon_size {
-    height: 22px;
+    height: 30px;
     cursor: pointer;
   }
   .mytooltip > .tooltip-inner {
@@ -121,8 +121,8 @@ input.m.react-datepicker-ignore-onclickoutside {
     padding-right: 8px;
   }
   ul.session_action img {
-    height: 22px;
-    width: 22px;
+    height: 42px;
+    width: 30px;
     cursor: pointer;
     object-fit: contain;
   }

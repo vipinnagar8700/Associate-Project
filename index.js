@@ -6,11 +6,13 @@ import  SessionProvider from './components/Context/Session';
 import reportWebVitals from './reportWebVitals';
 import Iconprovider from './components/Context/Sideicon';
 import Count from './components/Context/Count';
+import Discussionapi from './components/Context/Discussionapi';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
 <div>
+    <Discussionapi>
 <Count>
    <Iconprovider>
     <StationProvider>
@@ -20,6 +22,7 @@ root.render(
     </StationProvider>
     </Iconprovider>
     </Count>
+    </Discussionapi>
 </div>
 );
 

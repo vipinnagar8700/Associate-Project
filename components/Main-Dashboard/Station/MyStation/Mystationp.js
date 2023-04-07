@@ -137,12 +137,12 @@ allStationdata().then((data)=>{
           <ul>
             <li>
            
-              {displayprority &&   <img src="./img/substationicon1.png" onClick={widthadjust} />}
+              {displayprority &&   <img src="./img/MyStations.svg"  onClick={widthadjust} />}
           
             </li>
             <li>
             
-            <img src="./img/substationicon2.png" onClick={()=>setSearch(!search)} />
+            <img src="./img/Search.svg" onClick={()=>setSearch(!search)} />
             </li>
           </ul>
         </div>

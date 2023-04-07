@@ -17,7 +17,9 @@ import Discussion from './Station_Discussion/Discussion';
 import Singlediscuss from './Station_Discussion/Singlediscuss';
 import AllAssociates from './Associate/AllAssociates';
 import Count from './components/Context/Count';
-
+import { Checking } from './components/Testing/Checking';
+import Discussrecent from './Station_Discussion/Discussrecent';
+import { Searchd } from './Station_Discussion/Searchd';
 
 
 
@@ -32,7 +34,8 @@ function App() {
 
     {/* <TextStyle/> */}
    <Header/>  
-   
+ 
+ 
     <Router>
       <Routes>
         <Route path="/admin" element={<Admin/>}/>

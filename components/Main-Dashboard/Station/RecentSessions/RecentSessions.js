@@ -104,7 +104,7 @@ if(searchtext && End && Start){
                   
               
               {  showiconsubheader && <img
-                  src="img/blank_star.png"
+                  src="img/PriotiySessions.svg"
                   className="global_icon_size cursor-pointer"
                   alt=""
                 />
@@ -116,31 +116,46 @@ if(searchtext && End && Start){
             <p className="mb-0 fs-18">Recent Sessions</p>
           </div>
           <div className="recent_session_right_action">
-            <div className="d-flex align-item-center">
+            <div className="d-flex align-item-center" style={{flexGrow:'1'}}>
               <div className="add_new_session pe-3">
               
-               {   showiconsubheader && <img
-                    onClick={()=>setsessionform({...sessionform,modalShow:true})}
-                    src="img/add_icon.png"
-                    className="global_icon_size cursor-pointer"
-                    alt="wd"
-                  
-                  />}
+           
                
               </div>
 
-              <div className="search_session">
+              <div className="search_session  d-flex align-items-center">
+              {   showiconsubheader && <img
+                    onClick={()=>setsessionform({...sessionform,modalShow:true})}
+                    src="img/AddNewSession.svg"
+                    className="global_icon_size cursor-pointer"
+                    alt="wd"
+                   
+                  
+                  />}
                 
               {  showiconsubheader &&    <img
-                    src="img/search_icon.png"
+                    src="img/Search.svg"
                     className="global_icon_size cursor-pointer"
                     alt="search"
                     onClick={()=>{setseachon(!seachon)}}
 
                   />}
-               
-               
+                 
+                <div> <img
+                    src="img/FullScreen.svg"
+                    className="global_icon_size cursor-pointer"
+                    alt="search"
+                 
+
+                  /> </div>
               </div>
+             
+                
+             
+                  
+                 
+                 
+              
             </div>
           </div>
         </div>
@@ -282,7 +297,14 @@ const formattedDate = `${day}/${month}/${year}`;
                   <ul className="session_action ps-0 mb-0">
                     <li>
                       <a href="">
-                        <i className="fa fa-ellipsis-h" aria-hidden="true"></i>
+                      <img
+                    src="img/Option.svg"
+                    className="global_icon_size cursor-pointer"
+                    alt="search"
+                  id="new_iconzip"
+                 
+
+                  /> 
                       </a>
                     </li>
                     <li>
@@ -296,7 +318,7 @@ const formattedDate = `${day}/${month}/${year}`;
                         placement="right"
                       >
                         <img
-                          src="img/full_screen_view.png"
+                          src="img/Openonpage.svg"
                           className="cursor-pointer"
                           alt=""
                         />
@@ -314,7 +336,7 @@ const formattedDate = `${day}/${month}/${year}`;
                         placement="right"
                       >
                         <img
-                          src="img/stations.png"
+                          src="img/Replypage-01.svg"
                           className=" cursor-pointer"
                           alt=""
                         />
@@ -332,7 +354,7 @@ const formattedDate = `${day}/${month}/${year}`;
                         placement="right"
                       >
                         <img
-                          src="img/blank_star.png"
+                          src="img/PriotiySessions.svg"
                           className="global_icon_size cursor-pointer"
                           alt=""
                         />

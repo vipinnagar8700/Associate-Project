@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState ,useEffect,useContext} from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -33,8 +33,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import { discusscomment } from "../Api/Discussion/Discussion";
-import { useParams } from "react-router-dom";
+import { addcomment, discusscomment } from "../Api/Discussion/Discussion";
+import { Link, useParams } from "react-router-dom";
+import { Discussapi } from "../components/Context/Discussionapi";
+import Sidebar from "./Sidebar";
+import Discussrecent from "./Discussrecent";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -83,35 +86,75 @@ const HtmlTooltip = styled(({ className, ...props }) => (
 }));
 
 const Singlediscuss = () => {
+const[sucess,setsucces]=useState('')
+const[circle ,setcircle]=useState(false)
+const [content, setContent] = useState('');
+console.log(content);
   const[data,setdata]=useState(null)
   const[name ,setname]=useState('')
+  const[sidebardata,setsidebardata]=useState(false)
+  alert(sidebardata)
   let { id } = useParams();
   useEffect(()=>{
 discusscomment(+(id)).then((data)=>{
 setdata(data)
-            
+          alert("gahag")
 
 })
-  },[])
+  },[id,sucess])
  console.log(data);
- 
 
-   if(!data){
+
+ const[thirdcomment,setthirdcomment]=useState(false)
+ const[Rec,setRec]=useState(false)
+ let {discussdata,setdiscussdata}=useContext(Discussapi)
+ const handlediscuss=(e)=>{
+  alert("wheduehu")
+  setsucces('')
+  e.preventDefault()
+  addcomment(discussdata,id,content).then((data)=>{
+    console.log(data.messege,"this is che kinggg");
+    setsucces(data.messege)
+  
+
+  })
+
+ }
+   if(!data
+    ){
     return<div>
       <h2>loading ......</h2>
     </div>
    }
        
-
+console.log(discussdata,"this is new discuss");
    let name1=data.results.session_associate[0]
    console.log(name1);
   return (
     <>
-    <Box className="bgimg"></Box>
+    <Box className="bgimg">
+
+      
+    </Box>
     <Bgimg />
+    
+  
     <Container maxWidth="lg" sx={{ marginTop: "15px" }}>
+    
       <Grid container spacing={0} sx={{ padding: "10px" }}>
-        <Grid item xs={12} sx={{ backgroundColor: "#fff" }}>
+        <Grid item xs={12} sx={{ backgroundColor: "#fff",position:'relative' }}>
+     {
+      Rec &&    <Box sx={{ position: 'absolute',
+      top: '32%',
+      left: '40%',
+      transform: 'translate(-50%, -50%)',
+     zIndex:'999',
+      bgcolor: 'white',}}>
+
+
+<Discussrecent/>
+</Box>
+     }
           <Box
             sx={{
               backgroundColor: "#1688ca",
@@ -155,6 +198,7 @@ setdata(data)
                     </Typography>
                   </Box>
                 </Box>
+              
               </Grid>
 
               <Grid item xs={3}>
@@ -163,7 +207,7 @@ setdata(data)
 
                   <ImageList cols={1}>
                     <ImageListItem>
-                      <img src="./img/puja1.png" />
+                      <img src="./img/puja1.png"  alt="assocaite imahe"/>
                     </ImageListItem>
                   </ImageList>
                   <Typography>Responses</Typography>
@@ -343,6 +387,9 @@ setdata(data)
                     />
                     <AddCircleOutlineIcon
                       sx={{ color: "grey", width: "22px", height: "22px" }}
+                      onClick={()=>{
+                     setRec(!Rec)
+                      }}
                     />
                   </Box>
                   <Box>
@@ -350,8 +397,10 @@ setdata(data)
                       Direct Sessions
                     </Typography>
                   </Box>
+                 
 
                   <Box sx={{ display: "flex", gap: "5px" }}>
+                    <Link to={`http://localhost:3000/discussion/${+(id)-1}`}>
                     <ChevronLeftIcon
                       sx={{
                         backgroundColor: "#5a585d",
@@ -360,7 +409,10 @@ setdata(data)
                         borderRadius: "50%",
                         color: "#fff",
                       }}
+
                     />
+                    </Link>
+                    <Link to= {`/discussion/${+(id )+ 1}`}>
                     <ChevronRightIcon
                       sx={{
                         backgroundColor: "#5a585d",
@@ -370,6 +422,7 @@ setdata(data)
                         color: "#fff",
                       }}
                     />
+                    </Link>
                   </Box>
                 </Box>
 
@@ -587,6 +640,7 @@ setdata(data)
                         </Box>
                       </Stack>
                       <Box>
+                    
                         <Stack
                           direction="row"
                           spacing={1}
@@ -638,6 +692,7 @@ setdata(data)
                                 Reply
                               </Typography>
                             </Box>
+                         
                             <ChevronRightIcon
                               sx={{
                                 backgroundColor: "#5a585d",
@@ -826,6 +881,7 @@ setdata(data)
                   </Box> */}
                  {
                   data.comment.map((sdata)=>{
+                    console.log(sdata,"ejfiheif");
                     return<>
                      <Box
                     className="box_hover"
@@ -853,7 +909,8 @@ setdata(data)
                       >
                         <Avatar alt="Remy Sharp" src={`https://assoc.studiomyraa.com/public/uploads/images/${sdata.users[0].image}`} />
                         <Box>
-                          priyanka
+                         
+
                           <Typography
                             sx={{ fontSize: "15px", fontWeight: "bold" }}
                           >
@@ -903,6 +960,10 @@ setdata(data)
                             <Box>
                               <Typography
                                 variant="caption"
+                                onClick={()=>{
+                                setsidebardata(sdata)
+                                    setthirdcomment(true)
+                                }}
                                 sx={{
                                   backgroundColor: "lightgrey",
                                   padding: "3px",
@@ -946,7 +1007,7 @@ setdata(data)
                         marginTop: "5px",
                       }}
                     >
-                      {sdata.content}
+                      {sdata.content.replaceAll('<p>', '').replaceAll('</p>', '')}
                     </Typography>
                   </Box> 
                     </>
@@ -1077,7 +1138,11 @@ setdata(data)
                 <Grid container spacing={1} sx={{my:2}}>
                       <Grid item xs={10}>
                       <Box>
-                    <JoditEditor />
+                    <JoditEditor
+                    value={content}
+                    onChange={newContent => {setContent(newContent)}}
+                    
+                    />
                   </Box>
                       </Grid>
                       <Grid item xs={1}>
@@ -1091,12 +1156,16 @@ setdata(data)
                           borderRadius: "0.25rem",
                           fontWeight: "bold",
                         }}
+                        onClick={handlediscuss}
                       >
                         Reply
                       </Typography>
                     </Box>
                     <Box sx={{ color: "#1688ca" }}>
                       <AttachmentSharpIcon />
+                      <input type='file' onClick={(e)=>{
+                             setdiscussdata({...discussdata,dfiledata:e.target.files[0]})
+                      }}/>
                       <Typography variant="caption">Add</Typography>
                     </Box>
                   </Box>
@@ -1105,121 +1174,12 @@ setdata(data)
                
               </Grid>
 
+             {
+              thirdcomment &&
               <Grid item sx={3}>
-                <Box
-                  sx={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <Box></Box>
-                  <Box>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{ fontWeight: "600" }}
-                    >
-                      Sidebar Comments
-                    </Typography>
-                  </Box>
-                  <Box>
-                    <CancelIcon />
-                  </Box>
-                </Box>
-                <Box sx={{ border: "4px solid #1688ca", padding: "3px" }}>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{ fontWeight: "bold", fontSize: "14px" }}
-                  >
-                    You are responding to the post of:
-                  </Typography>
-                  <Stack direction="row" spacing={1}>
-                    <Avatar alt="Remy Sharp" src="./img/john.jpg" />
-                    <Typography sx={{ fontWeight: "bold", color: "#1688ca" }}>
-                      Jim Smith
-                    </Typography>
-                  </Stack>
-                </Box>
-
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  sx={{
-                    my: 2,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textAlign: "center",
-                  }}
-                >
-                  <Box>
-                    <FormControl
-                      sx={{ m: 1, width: "20ch" }}
-                      variant="outlined"
-                    >
-                      <OutlinedInput
-                        id="outlined-adornment-weight"
-                        endAdornment={
-                          <InputAdornment position="end"></InputAdornment>
-                        }
-                        aria-describedby="outlined-weight-helper-text"
-                        inputProps={{
-                          "aria-label": "weight",
-                        }}
-                      />
-                    </FormControl>
-                  </Box>
-                  <Box>
-                    <Box>
-                      <SentimentSatisfiedAltIcon />
-                    </Box>
-                    <Box>
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          backgroundColor: "lightgrey",
-                          padding: "5px 10px",
-                          borderRadius: "0.25rem",
-                          fontWeight: "bold",
-                          verticalAlign: "middle",
-                          lineHeight: "2.66",
-                          ":hover": {
-                            backgroundColor: "#1688ca",
-                            color: "#fff",
-                          },
-                        }}
-                      >
-                        Add
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Stack>
-
-                <Box sx={{ my: 2 }}>
-                  <Stack direction="row" spacing={1}>
-                    <Avatar alt="Remy Sharp" src="./img/john.jpg" />
-                    <Stack direction="column">
-                      <Typography variant="subtitle2">
-                        Thanks for the manual Jim
-                      </Typography>
-                      <Typography
-                        variant="subtitle2"
-                        sx={{ color: "#bbbbbd" }}
-                      >
-                        John S Smith 4 years ago
-                      </Typography>
-                      <Typography
-                        variant="subtitle2"
-                        sx={{
-                          color: "#1688ca",
-                          cursor: "pointer",
-                          ":hover": {
-                            textDecoration: "underline",
-                            textDecorationColor: "#1688ca",
-                          },
-                        }}
-                      >
-                        Reply
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Box>
-              </Grid>
+             <Sidebar thirdcomment={thirdcomment} setthirdcomment={setthirdcomment} sidebardata={sidebardata}/>
+             </Grid>
+             }
             </Grid>
           </Container>
         </Grid>

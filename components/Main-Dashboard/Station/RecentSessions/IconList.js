@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemButton, ListItemIcon } from '@mui/material'
+import { List, ListItem, ListItemButton, ListItemIcon, Typography } from '@mui/material'
 import{createGlobalStyle} from 'styled-components'
 import React,{useContext, useState} from 'react'
 import { Icon } from '../../../Context/Sideicon';
@@ -24,11 +24,11 @@ const IconList = () => {
   console.log(aeditstation,"aaaaaaaaaaaaaaaaaaaa","wjebrfkgut3,",event,"event",iconaction.station,search,"dhf","messaheoption", messageoption);
   return (
     <div>
-        <List className='profile_icon' sx={{backgroundColor:'#fff',mt:1}}>
+        <List className='profile_icon' sx={{backgroundColor:'#fff',mt:1,zIndex:'9999'}}>
             <Iconstyle/>
             
-            <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
+            <ListItem sx={{padding:'0',width:'100px'}}>
+                <ListItemButton sx={{gap:'5px',padding:'10px'}}>
                     <img src='./img/associate_icon1.png' onClick={(e)=>{
                         setcvalue((value)=>{
                           return value+1;
@@ -43,10 +43,11 @@ const IconList = () => {
                     return true
                    })
                    }   }/>
+                  <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Addstation</Typography>
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
+                <ListItemButton  sx={{gap:'5px',padding:'10px'}}>
                 <img src='./img/associate_icon2.png' onClick={(e)=>{
                        setcvalue((value)=>{
                         return value+1;
@@ -58,48 +59,75 @@ const IconList = () => {
                     
                  
                 }}/>
+                  <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Editstation</Typography>
+               
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon3.png'  onClick={()=>setsessionform({...sessionform,modalShow:true})}/>
+                <ListItemButton  sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/AddNewSession.svg' style={{maxWidth:'32px'}} onClick={()=>setsessionform({...sessionform,modalShow:true})}/>
+                <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Editstation</Typography>
+               
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon4.png'/>
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/Huddle.svg' style={{maxWidth:'32px'}}/>
+                <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Huddle</Typography>
+               
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon5.png'/>
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/PriotiySessions.svg' style={{maxWidth:'32px'}}/>
+                <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Priority Session</Typography>
+               
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon6.png' onClick={(e)=>{iconaction.actionstationfile(true)
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/StationFiles.svg'  style={{maxWidth:'32px'}}onClick={(e)=>{iconaction.actionstationfile(true)
                    seticonaction({...iconaction,event:e}) 
                 }}/>
+                <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Station File</Typography>
+               
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon7.png'/>
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/StationSessions.svg' style={{maxWidth:'32px'}} />
+                <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}> Station Session </Typography>
+              
                 </ListItemButton>
+             
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon8.png'/>
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/MyStations.svg' style={{maxWidth:'32px'}} />
+                <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>My Station</Typography>
+              
                 </ListItemButton>
+             
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon9.png'/>
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/DirectSessions.svg' style={{maxWidth:'32px'}} />
+                <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Direct Session</Typography>
+              
                 </ListItemButton>
+             
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon10.png'onClick={(e)=>{ 
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/FullScreen.svg' style={{maxWidth:'32px'}} />
+                <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Full Screen</Typography>
+              
+                </ListItemButton>
+             
+            </ListItem>
+            <ListItem sx={{padding:'0'}}>
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/Search.svg' style={{maxWidth:'32px'}} onClick={(e)=>{ 
                      seticonaction({...iconaction,event:e}) 
                     actionsearch( (search)=>{
                         if(search){
@@ -111,21 +139,27 @@ const IconList = () => {
                     })
                 
                 }}/>
+                 <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Search</Typography>
+               
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon11.png'onClick={()=>alert("Please check off Priority Box on Station")}/>
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/Option.svg' style={{maxWidth:'32px'}} onClick={()=>alert("Please check off Priority Box on Station")}/>
+                <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Priority</Typography>
+               
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton>
-                <img src='./img/associate_icon11.png' onClick={()=>seticonaction((iconaction)=>{
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
+                <img src='./img/Option.svg' style={{maxWidth:'32px'}} onClick={()=>seticonaction((iconaction)=>{
                 if(iconaction.messageoption ===true){
                   return{...iconaction,messageoption:false}
                 }
                 return{...iconaction,messageoption:true}
                 })}/>
+                  <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Option</Typography>
+               
                 </ListItemButton>
             </ListItem>
         </List>

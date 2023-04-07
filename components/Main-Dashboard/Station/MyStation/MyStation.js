@@ -79,7 +79,7 @@ console.log(width)
                   <li>
                      <Tooltip title="Station File">
                     <a>
-                   {  showiconsubheader &&  <img src="./img/upload-white.png" onClick={()=>{
+                   {  showiconsubheader &&  <img src="./img/StationFiles.svg" onClick={()=>{
                         setchangestation(!changestation)
                         setStationFile(false)
                        }}
@@ -90,7 +90,7 @@ console.log(width)
                   <li>
                   <Tooltip title="Station Board">
                     <a>
-                    { showiconsubheader &&  <img src="./img/mystation2-white.png" />}
+                    { showiconsubheader &&  <img src="./img/StationBoards.svg" />}
                     </a>
                   </Tooltip>
                   </li>
@@ -103,7 +103,7 @@ console.log(width)
                   <Tooltip title="Add/Edit Station">
                     <a>
                       
-                 {  showiconsubheader&&  <img src="./img/station-icon3.png"  onClick={()=>{
+                 {  showiconsubheader&&  <img src="./img/header-edit-station.png"  style={{width:'15px',height:'15px'}} onClick={()=>{
                         currentStation(!currentstation)
                       }}/>}
                     </a>
@@ -116,7 +116,7 @@ console.log(width)
                   stationFile?<Tooltip title="Back to Huddle"><img src="./img/station-icon2.png" onClick={()=>{
                     setchangestation(false)
                     setStationFile(!stationFile)
-                   }}/></Tooltip>:  <Tooltip title="Back to Station"><img src="./img/huddleicon.png" onClick={()=>{
+                   }}/></Tooltip>:  <Tooltip title="Back to Station"><img src="./img/Huddle.svg" onClick={()=>{
                     setchangestation(false)
                     setStationFile(!stationFile)
                    }}/></Tooltip>
