@@ -59,7 +59,7 @@ function RecentSessions() {
   let alldata=  RecentSes()
   alldata.then((data)=>{
     setRecentSessionsData(data)
-    setsessionapi(data)
+  
   })
 
   },[])

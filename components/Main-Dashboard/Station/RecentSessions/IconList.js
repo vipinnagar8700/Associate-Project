@@ -151,13 +151,13 @@ const IconList = () => {
                 </ListItemButton>
             </ListItem>
             <ListItem sx={{padding:'0'}}>
-                <ListItemButton sx={{gap:'0px',padding:'5px'}}>
-                <img src='./img/Option.svg' style={{maxWidth:'32px'}} onClick={()=>seticonaction((iconaction)=>{
+                <ListItemButton sx={{gap:'0px',padding:'5px'}}  onClick={()=>seticonaction((iconaction)=>{
                 if(iconaction.messageoption ===true){
                   return{...iconaction,messageoption:false}
                 }
                 return{...iconaction,messageoption:true}
-                })}/>
+                })}>
+                <img src='./img/Option.svg' style={{maxWidth:'32px'}} />
                   <Typography variant="body1" color="initial" sx={{fontSize:'12px'}}>Option</Typography>
                
                 </ListItemButton>

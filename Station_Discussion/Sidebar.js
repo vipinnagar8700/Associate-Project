@@ -34,7 +34,9 @@ console.log(reply,"this");
 const Commentside=(e)=>{
   setsucess('')
   e.preventDefault()
-  alert(contentreply)
+
+
+  
   addcommentreply(session_id,id,contentreply).then((data)=>{
   setsucess(data.messege)
 

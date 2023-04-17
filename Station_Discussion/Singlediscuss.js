@@ -93,23 +93,23 @@ console.log(content);
   const[data,setdata]=useState(null)
   const[name ,setname]=useState('')
   const[sidebardata,setsidebardata]=useState(false)
-  alert(sidebardata)
+
   let { id } = useParams();
   useEffect(()=>{
 discusscomment(+(id)).then((data)=>{
 setdata(data)
-          alert("gahag")
+          
 
 })
   },[id,sucess])
- console.log(data);
+
 
 
  const[thirdcomment,setthirdcomment]=useState(false)
  const[Rec,setRec]=useState(false)
  let {discussdata,setdiscussdata}=useContext(Discussapi)
  const handlediscuss=(e)=>{
-  alert("wheduehu")
+  
   setsucces('')
   e.preventDefault()
   addcomment(discussdata,id,content).then((data)=>{

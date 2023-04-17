@@ -1,7 +1,7 @@
 import { getlocalstore } from "../../Helper/localsStroage";
 import "./Header.css"
 function NavigationNav() {
-  let {image}= getlocalstore('login')
+  
 
 
   return (
@@ -342,8 +342,7 @@ function NavigationNav() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <img src={`https://assoc.studiomyraa.com/public/uploads/images/${image}`} className="img-fluid me-1" />
-            </a>
+                 </a>
             <ul className="dropdown-menu" aria-labelledby="John-dropdown">
               <li>
                 <a href="#">Video Demo</a>
