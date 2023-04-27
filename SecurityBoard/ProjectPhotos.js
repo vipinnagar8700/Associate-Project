@@ -1,28 +1,44 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Grid, Container, Stack, Typography, Box, Avatar, IconButton, } from '@mui/material'
 // import { DashboardBoard } from './DashboardBoard'
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDown'
 import ProjectAssociate from './ProjectAssociate'
+import Addphotos from './TestFile/Addphotos'
+import CommentsField from './TestFile/CommentsField'
 // import AddDiscussion from '../Station_Discussion/AddDiscussion'
 
 
 const ProjectPhotos = () => {
+    const [ph, setph] = useState(false);
+    const handleOpen = () => {
+        setph(true);
+    };
+
+    // filesonc setsk({...sk,file:false,act})
+    const [com, setcom] = useState(false
+        )
+
     return (
         < Box >
             <Grid container sx={{ justifyContent: 'end', backgroundColor: '#f6f6f6', alignItems: 'center' }}>
-                <Grid item xs={5}>
+            <Grid item xs={12} sx={{ textAlign: "center" }}>
+                    <Stack direction={"row"} sx={{ justifyContent: "space-between", alignItems: "center" }}>
+                        <Box></Box>
+                        <Box><Typography variant='h6'my={1}  sx={{ fontSize: 16, "&:hover": {
+                            border: "1px solid #00FF00",
+                        } }} > Photos</Typography></Box>
+                        <Box>
+                        <ArrowDropDownCircleIcon  onClick={() => setph(true)}/>
+                        {
+                        ph &&
+                        <Addphotos ph={ph} setph={setph} />
+                    }
+
+                        </Box>
+                    </Stack>
 
                 </Grid>
-                <Grid item xs={6}>
-                    <Typography variant='h6' sx={{ fontSize: 16 }} > Photos</Typography>
-                </Grid>
-                <Grid item xs={1}>
-                    <IconButton>
-                        <ArrowDropDownCircleIcon type="button" />
-                    </IconButton>
-
-
-                </Grid>
+                
             </Grid>
             {/* Data */}
             <Box >
@@ -48,20 +64,15 @@ const ProjectPhotos = () => {
 
             </Box>
             {/* Comments */}
-            <Grid container sx={{ justifyContent: 'end', backgroundColor: '#f6f6f6', alignItems: 'center' }}>
-                <Grid item xs={5}>
-
+            <Grid container sx={{ justifyContent: 'center', backgroundColor: '#f6f6f6', alignItems: 'center' }}>
+                
+                <Grid item  m={1}>
+                    <Typography variant='h6' sx={{ fontSize: 16, "&:hover": {
+                            border: "1px solid #00FF00",
+                        } }}  onClick={() => setcom(true)}> Comments</Typography>
+                        
                 </Grid>
-                <Grid item xs={6}>
-                    <Typography variant='h6' sx={{ fontSize: 16 }} > Comments</Typography>
-                </Grid>
-                <Grid item xs={1}>
-                    <IconButton>
-                        <ArrowDropDownCircleIcon type="button" />
-                    </IconButton>
-
-
-                </Grid>
+                
             </Grid>
             {/* Data */}
             <Box >
@@ -78,7 +89,10 @@ const ProjectPhotos = () => {
                     >
                         <Stack spacing={3} direction="row" p={15} alignBoxs="start" sx={{ justifyContent: 'center' }}>
 
-                            <Typography ></Typography>
+                            <Typography >{
+                            com &&
+                            <CommentsField  com={com} setcom={setcom}/>
+                        }</Typography>
                         </Stack>
 
                     </Box>

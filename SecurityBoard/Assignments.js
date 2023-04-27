@@ -1,5 +1,5 @@
 import { Container, Box, Grid, Typography, IconButton, Avatar, Stack, Button, Divider } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDown'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,24 +7,42 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import ProjectAssignments from './TestFile/ProjectAssignments';
 
 
 
 const Assignments = () => {
+
+    // assign
+    const [assigns, setassigns] = useState(false);
+    const handleOpen = () => {
+        setassigns(true);
+    };
     return (
-        <Box  sx={{ backgroundColor: '#ffff',marginTop:'4px' }}>
+
+        <Box sx={{ backgroundColor: '#ffff', marginTop: '4px' }}>
             <Grid container sx={{ justifyContent: 'end', backgroundColor: '#f6f6f6', alignItems: 'center' }}>
-                <Grid item xs={5}>
+                <Grid item xs={12} sx={{ textAlign: "center" }}>
+                    <Stack direction={"row"} sx={{ justifyContent: "space-between", alignItems: "center" }}>
+                        <Box></Box>
+                        <Box>  <Typography variant='h6' sx={{
+                            fontSize: 16, "&:hover": {
+                                border: "1px solid #00FF00",
+                            }
+                        }} onClick={() => setassigns(true)}> Project Assignments</Typography>
+                            {
+                                assigns &&
+                                <ProjectAssignments assigns={assigns} setassigns={setassigns} />
+                            }</Box>
+                        <Box>
+                            <IconButton>
+                                <ArrowDropDownCircleIcon type="button" />
+                            </IconButton>
+                        </Box>
+                    </Stack>
 
                 </Grid>
-                <Grid item xs={6}>
-                    <Typography variant='h6' sx={{ fontSize: 16 }} > Project Assignments</Typography>
-                </Grid>
-                <Grid item xs={1}>
-                    <IconButton>
-                        <ArrowDropDownCircleIcon type="button" />
-                    </IconButton>
-                </Grid>
+                
             </Grid>
             <Box height="330px">
                 <TableContainer>
@@ -88,6 +106,7 @@ const Assignments = () => {
                 </TableContainer>
             </Box>
         </Box>
+
     )
 }
 

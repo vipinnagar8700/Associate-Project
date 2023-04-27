@@ -1,336 +1,465 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.react-datepicker-wrapper {
+
+  margin: 0px !important;
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
   
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  .react-datepicker-wrapper {
- 
-    margin: 0px !important;
-    display: inline-block;
-    padding: 0;
-    border: 0;
-    width: 100%;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    
-  }
+}
 .text_search{
-    padding:0px !important;
-  }
-  input#search_text {
-    border-radius: 8px solid #cccccc;
-    text-align: center;
-    margin: 0px 4px;
-   
+  padding:0px !important;
+}
+input#search_text {
+  border-radius: 8px solid #cccccc;
+  text-align: center;
+  margin: 0px 4px;
+ 
 }
 div#seach_date {
-  /* height: 100%; */
-  position: absolute;
-  left: 69%;
-  top: 2%;
-  background: #fff;
+/* height: 100%; */
+position: absolute;
+right: 0;
+top: 0%;
+background: #fff;
+z-index: 999;
+min-width: 180px;
 }
 .icon_action{
- height: fit-content;
-  top:75%;
-  left: 14%;
-  position: absolute;
+height: fit-content;
+top:30%;
+background-color: #fff;
+z-index: 9999;
+left: 2%;
+position: absolute;
 
 }
 .session_Box.pt-1 {
-  position: relative;
+position: relative;
 }
 input.m.react-datepicker-ignore-onclickoutside {
-  text-align: center;
+text-align: center;
 }
 .react-datepicker__input-container input {
-  border-radius: 7px solid #cccccc;
-  text-align: center;
+border-radius: 7px solid #cccccc;
+text-align: center;
 }
-  
-  /* stations session css start */
-  .global_icon_size {
-    height: 30px;
-    cursor: pointer;
-  }
-  .mytooltip > .tooltip-inner {
-   font-size: 12px;
-   padding: 3px 8px;
-   padding-bottom: 4px;
-  }
-  .custom_tool_tip > .tooltip-inner {
-    font-size: 12px;
-    padding: 3px 8px;
-    padding-bottom: 4px;
-   
-    color: #ffffff;
-    border: 1px solid #c9c9c9;
-    text-align: left;
-   }
-   .custom_tool_tip a{
+
+/* stations session css start */
+.global_icon_size {
+  height: 30px;
+  cursor: pointer;
+}
+.mytooltip > .tooltip-inner {
+ font-size: 12px;
+ padding: 3px 8px;
+ padding-bottom: 4px;
+}
+.custom_tool_tip > .tooltip-inner {
+  font-size: 12px;
+  padding: 3px 8px;
+  padding-bottom: 4px;
+ 
+  color: #ffffff;
+  border: 1px solid #c9c9c9;
+  text-align: left;
+ }
+ .custom_tool_tip a{
+color: #fff;
+text-decoration: none;
+ 
+ }
+
+
+.recent_session_header {
+  background-color: #1688ca;
   color: #fff;
-  text-decoration: none;
-   
-   }
+  padding: 6px 10px;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+.fs-18{
+  font-size: 18px;
+}
+.fs-20{
+  font-size: 20px;
+}
+.fs-14{
+  font-size: 14px;
+}
+.fs-13{
+  font-size: 13px;
+}
+.fs-22{
+  font-size: 22px;
+}
+.fs-24{
+  font-size: 24px;
+}
+
+
+.rs_user_profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+ul.session_action li {
+  display: inline-block;
+  padding-right: 8px;
+}
+ul.session_action img {
+  height:30px;
+  width: 30px;
+  cursor: pointer;
+  object-fit: contain;
+}
+.session_listing {
+  padding: 5px 10px;
+  background: white;
+  border-bottom: 7px solid #F8F3FB;
+}
+.session_box{
+  box-shadow: 0 0 2px #ccc;
+}
+
+.rs_comment_area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dark_black{
+  color: #8e8c8cb3;
+}
+.discussions_link{
+  color: #8e8c8cb3;
+  font-weight: 600;
+}ul.session_action a {
+  color: #7C7C7C;
+}
+
+.session_listing:hover {
+  outline: 2px solid #1688ca;
+  background: #E8F0F8;
+}
+
+.ans_modal {
+  background-color: #e0daf8;
+  padding: 15px;
+  border-radius: 8px;
+}
+.modal-header {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}.modal-content {
+  border-radius: 0px !important;
+}.btn-close {
+  background-size: 15px !important;
+}
+
+.select_station {
+  background-color: #f3f3f3;
+  margin-top: 5px;
+  position: relative;
+  padding: 4px 0px;
+}.select_station_icon {
+  position: absolute;
+  left: 10px;
+}
+
+ .light_purple_title {
+  color: #603190;
+}
+.station_dropdown {
+ 
+  max-width: 250px;
+  background: hsl(0, 0%, 100%) none repeat scroll 0 0;
+  border: 1px solid hsl(0, 0%, 78%);
+  padding-top: 0px;
+}
+.station_dropdown_title {
+  background-color: #c6c6c6;
+  text-align: center;
+  padding: 5px;
+}
+.station_dropdown ul{
+  padding: 10px !important;
+}
+.station_dropdown li{
+  padding-bottom: 2px;
+  padding-top: 2px;
+  list-style-type: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.station_dropdown li:hover {
+  background-color: #c6c6c6;
+}
+.name_of_file {
+  max-width: 250px;
   
+}
+.session_file_group {
+  background-color: #c6c6c6;
+  padding: 10px;
+}
+
+.name_of_file .station_dropdown_title {
+  border-bottom: 1px solid #b2b2b2;
+}
+
+.max_250{
+  max-width: 250px;
+}
+.sesseion_file_table td {
+    font-size: 12px;
+    border: unset !important;
+}
+.sesseion_file_table th {
+    font-size: 12px;
+    color: #7f7f7f;
+    border: unset !important;
+}
+.sesseion_file_table th {
+    background-color: #cfdce7 !important;
+}
+.cross_system_fies {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.session_system_file_title {
+  background-color: #c6c6c6;
+  text-align: center;
+  padding: 5px;
+  position: relative;
+}
+.session_system_file {
+  border: 1px solid #9dc3e6;
+}
+
+.sesseion_file_table tr:hover {
+background-color:#e5eef7;}
+
+.green {
+  color: green;
+}
+.sesseion_file_table img {
+  height: 35px;
+}
+.right_close_btn {
+  position: absolute;
+  right: 10px;
+  top: 2.5px;
+}.global_title_with_right_close_btn {
+ 
+  position: relative;
+  padding: 5px 0px;
+}
+
+.gray_bg{
+  background-color: #6ccaf666;
+}
+.dark_gray_bg{
+  background-color: #1688ca;
+  color: #fff;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+.station_action i {
+  font-size: 15px;
+}.station_action a {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 18px;
+}.station_action li {
+  list-style-type: none;
+  padding: 0px 2px;
+}.station_action {
+  background-color: #bfbfbf;
+  padding: 2px 5px;
+}
+
+
+.custom_tool_tips > .tooltip-inner {
+  font-size: 12px;
+  padding: 3px 8px;
+  padding-bottom: 4px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #c9c9c9;
+  text-align: left;
+  border-radius: 0px;
+ }
+ .station_action a:hover {
+  color: #fff;
+}
+
+.red_badge {
+  background-color: #ff0000;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+.add_edit_station_section {
+  background-color: #fff;
+  /* box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px; */
+  position: absolute;
+  left: 13px;
+    right: 13px;
+    top: 40px;
+  z-index: 9999;
+  box-shadow: 2px 2px 15px rgba(0,0,0,.5) , -2px -2px 15px rgba(0,0,0,.5);
+}
+.Edit_global_icon_size {
+  height: 14px;
+  cursor: pointer;
+  width: auto;
+}
+/* stations session css end */
+
+
+@media (max-width:992px){
+  .fs-14 {
+    font-size: 11px;
+}
+.fs-18 {
+  font-size: 10px;
+}
+.global_icon_size {
+height: 25px;
+cursor: pointer;
+width: auto;
+
+}
+.associate_user_size{
+  width: calc(25% - 20px) !important;
+  border: 4px solid transparent;
+  margin: 5px;
+  transition: all .3s;
+}
+ul.session_action li {
+  display: inline-block;
+  padding-right: 0px;
+}
+}
+@media (min-width:768px){
+  .session_action{
+    position: absolute;
+    bottom: 0;
+  }
   
-  .recent_session_header {
-    background-color: #1688ca;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 0.25rem 0.25rem 0 0;
-  }
-  .fs-18{
-    font-size: 18px;
-  }
-  .fs-20{
-    font-size: 20px;
-  }
-  .fs-14{
-    font-size: 14px;
-  }
-  .fs-13{
-    font-size: 13px;
-  }
-  .fs-22{
-    font-size: 22px;
-  }
-  .fs-24{
-    font-size: 24px;
+}
+@media (max-width:768px){
+  
+  .center_small{
+    text-align: center !important;
   }
   
-  
-  .rs_user_profile {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
+}
+@media (max-width:600px){
+  .associate_user_size{
+    width: calc(33.3% - 20px) !important;
+    border: 4px solid transparent;
+    margin: 5px;
+    transition: all .3s;
   }
-  
-  ul.session_action li {
-    display: inline-block;
-    padding-right: 8px;
+}
+@media (max-width:478px){
+  .associate_user_size{
+    width: calc(50% - 20px) !important;
+    border: 4px solid transparent;
+    margin: 5px;
+    transition: all .3s;
   }
-  ul.session_action img {
-    height: 42px;
-    width: 30px;
+}
+@media (max-width:400px){
+  .associate_user_size{
+    width: calc(100% - 20px) !important;
+    border: 4px solid transparent;
+    margin: 20px !important;
+    transition: all .3s;
+  }
+}
+@media (max-width:300px){
+  ul.img-size img {
+    height: 18px;
+    width: 18px;
     cursor: pointer;
     object-fit: contain;
+}
+.screen_width{
+  max-width: 200px;
+}
+.camera-sc{
+  min-width: 200px !important;
+}
+.fs-7-300{
+  font-size: 7px !important;
+}
+.fs-6-300{
+  font-size: 6.5px !important;
+}
+.h-200{
+  max-height: 60px !important;
+  overflow-y: scroll;
+}
+div#seach_date {
+  min-width: 130px;
   }
-  .session_listing {
-    padding: 5px 10px;
-    background: white;
-    border-bottom: 7px solid #F8F3FB;
+.session_box .css-12hemyq-MuiTypography-root {
+  font-size: 10px;
+}
+.fs-13 {
+  font-size: 11px !important;
+}
+.fs-12 {
+  font-size: 10px !important;
+}
+.gap-3 {
+  gap: 8px !important;
+}
+.small_padding{
+  padding: 0px 7px
+}
+.pright-0{
+ padding-right: 0px !important;
+}
+.pleft-0{
+  padding-left: 0px !important;
+}
+}
+@media (max-width:1200px) and (min-width:900px){
+  .min_heigt{
+    min-height: 80px !important;
   }
-  .session_box{
-    box-shadow: 0 0 2px #ccc;
+  .mb-10{
+    margin-bottom: 10px !important;
   }
-  
-  .rs_comment_area {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .dark_black{
-    color: #8e8c8cb3;
-  }
-  .discussions_link{
-    color: #8e8c8cb3;
-    font-weight: 600;
-  }ul.session_action a {
-    color: #7C7C7C;
-  }
-  
-  .session_listing:hover {
-    outline: 2px solid #1688ca;
-    background: #E8F0F8;
-  }
-
-  .ans_modal {
-    background-color: #e0daf8;
-    padding: 15px;
-    border-radius: 8px;
-  }
-  .modal-header {
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-  }.modal-content {
-    border-radius: 0px !important;
-  }.btn-close {
-    background-size: 15px !important;
-  }
-  
-  .select_station {
-    background-color: #f3f3f3;
-    margin-top: 5px;
-    position: relative;
-    padding: 4px 0px;
-  }.select_station_icon {
-    position: absolute;
-    left: 10px;
-  }
-  
-   .light_purple_title {
-    color: #603190;
-  }
-  .station_dropdown {
-   
-    max-width: 250px;
-    background: hsl(0, 0%, 100%) none repeat scroll 0 0;
-    border: 1px solid hsl(0, 0%, 78%);
-    padding-top: 0px;
-  }
-  .station_dropdown_title {
-    background-color: #c6c6c6;
-    text-align: center;
-    padding: 5px;
-  }
-  .station_dropdown ul{
-    padding: 10px !important;
-  }
-  .station_dropdown li{
-    padding-bottom: 2px;
-    padding-top: 2px;
-    list-style-type: none;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  .station_dropdown li:hover {
-    background-color: #c6c6c6;
-  }
-  .name_of_file {
-    max-width: 250px;
-    
-  }
-  .session_file_group {
-    background-color: #c6c6c6;
-    padding: 10px;
-  }
-  
-  .name_of_file .station_dropdown_title {
-    border-bottom: 1px solid #b2b2b2;
-  }
-  
-  .max_250{
-    max-width: 250px;
-  }
-  .sesseion_file_table td {
-      font-size: 12px;
-      border: unset !important;
-  }
-  .sesseion_file_table th {
-      font-size: 12px;
-      color: #7f7f7f;
-      border: unset !important;
-  }
-  .sesseion_file_table th {
-      background-color: #cfdce7 !important;
-  }
-  .cross_system_fies {
-    position: absolute;
-    right: 10px;
-    top: 5px;
-  }
-  .session_system_file_title {
-    background-color: #c6c6c6;
-    text-align: center;
-    padding: 5px;
-    position: relative;
-  }
-  .session_system_file {
-    border: 1px solid #9dc3e6;
-  }
-  
-  .sesseion_file_table tr:hover {
-  background-color:#e5eef7;}
-  
-  .green {
-    color: green;
-  }
-  .sesseion_file_table img {
-    height: 35px;
-  }
-  .right_close_btn {
-    position: absolute;
-    right: 10px;
-    top: 2.5px;
-  }.global_title_with_right_close_btn {
-   
-    position: relative;
-    padding: 5px 0px;
-  }
-  
-  .gray_bg{
-    background-color: #6ccaf666;
-  }
-  .dark_gray_bg{
-    background-color: #1688ca;
-    color: #fff;
-    border-radius: 0.25rem 0.25rem 0 0;
-  }
-  .station_action i {
-    font-size: 15px;
-  }.station_action a {
-    border: 2px solid #fff;
-    border-radius: 50%;
-    color: #fff;
-    display: inline-block;
-    vertical-align: middle;
-    width: 25px;
-    height: 25px;
-    text-align: center;
-    line-height: 18px;
-  }.station_action li {
-    list-style-type: none;
-    padding: 0px 2px;
-  }.station_action {
-    background-color: #bfbfbf;
-    padding: 2px 5px;
-  }
-  
-  
-  .custom_tool_tips > .tooltip-inner {
-    font-size: 12px;
-    padding: 3px 8px;
-    padding-bottom: 4px;
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #c9c9c9;
-    text-align: left;
-    border-radius: 0px;
-   }
-   .station_action a:hover {
-    color: #fff;
-  }
-  
-  .red_badge {
-    background-color: #ff0000;
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    color: #fff;
-    font-size: 14px;
-    line-height: 25px;
-  }
-  .add_edit_station_section {
-    background-color: #fff;
-    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50% , -50%);
-    z-index: 9999;
-  }
-  /* stations session css end */
-
+}

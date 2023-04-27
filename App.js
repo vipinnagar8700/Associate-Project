@@ -29,6 +29,31 @@ import ProjectDescription from './SecurityBoard/ProjectDescription';
 import Assignments from './SecurityBoard/Assignments';
 import ProjectPhotos from './SecurityBoard/ProjectPhotos';
 import LinkAssociate from './SecurityBoard/LinkAssociate';
+import ProjectForm from './SecurityBoard/TestFile/ProjectForm';
+import AssociateSearch from './SecurityBoard/TestFile/AssociateSearch';
+import Addphotos from './SecurityBoard/TestFile/Addphotos';
+import Linktittle from './SecurityBoard/TestFile/Linktittle';
+import SelectAlbum from './SecurityBoard/TestFile/SelectAlbum';
+import Filetittle from './SecurityBoard/TestFile/Filetittle';
+import Actionlist from './SecurityBoard/TestFile/Actionlist';
+import ProjectTime from './SecurityBoard/TestFile/ProjectTime';
+import CommentsField from './SecurityBoard/TestFile/CommentsField';
+import ProjectDes from './SecurityBoard/TestFile/ProjectDes';
+import Addassign from './SecurityBoard/TestFile/Addassign';
+import Video from './SecurityBoard/TestFile/Video';
+import ProjectAssignments from './SecurityBoard/TestFile/ProjectAssignments';
+import Sts from './SecurityBoard/TestFile/Sts';
+import EB from './SecurityBoard/TestFile/EB';
+import ProjectRoleAdd from './SecurityBoard/TestFile/ProjectRoleAdd';
+import Sendboard from './SecurityBoard/SB/Sendboard';
+import BoardDetails from './SecurityBoard/SB/BoardDetails';
+import SetColor from './SecurityBoard/SB/SetColor';
+import Camera from './SecurityBoard/SB/Camera';
+import Workshop from './SecurityBoard/SB/Workshop';
+import NewSession from '../src/GroupPage/GroupPage/Pages/NewSession'
+import Group from '../src/GroupPage/GroupPage/Index'
+import Index from './ProjectTask/Index';
+// import SelectAssociateEmails from './SecurityBoard/SB/SelectAssociateEmails';
 
 
 
@@ -61,11 +86,41 @@ function App() {
           <Route path="/stations" element={<Stations />} />
           <Route path="/Dashboad-Board" element={<DashboardBoard />} />
           {/* <Route path="/projectAssociate" element={<projectAssociate/>} /> */}
-          <Route path="/ProjectAssociate" element={<ProjectAssociate/>} />
-          <Route path="/ProjectPhotos" element={<ProjectPhotos/>} />
-          <Route path="/ProjectDescription" element={<ProjectDescription/>} />
-          <Route path="/Assignments" element={<Assignments/>} />
-          <Route path="/LinkAssociate" element={<LinkAssociate/>} />
+          <Route path="/ProjectAssociate" element={<ProjectAssociate />} />
+          <Route path="/ProjectPhotos" element={<ProjectPhotos />} />
+          <Route path="/ProjectDescription" element={<ProjectDescription />} />
+          <Route path="/Assignments" element={<Assignments />} />
+          <Route path="/LinkAssociate" element={<LinkAssociate />} />
+          <Route path="/SendBoard" element={<Sendboard />} />
+          <Route path="/BoardDetails" element={<BoardDetails />} />
+          <Route path="/SaveColor" element={<SetColor />} />
+          <Route path="/Camera" element={<Camera />} />
+          <Route path="/Workshop" element={<Workshop />} />
+          {/* SB */}
+          {/* <Route path="/SelectEmails" element={<SelectAssociateEmails />} /> */}
+
+          {/* TestFile */}
+          <Route path="/ProjectForm" element={<ProjectForm />} />
+          <Route path="/AssociateSearch" element={<AssociateSearch />} />
+          <Route path="/Addphotos" element={<Addphotos />} />
+          <Route path="/Linktittle" element={<Linktittle />} />
+          <Route path="/Selectalbum" element={<SelectAlbum />} />
+          <Route path="/Filetittle" element={<Filetittle />} />
+          <Route path="/Actionlist" element={<Actionlist />} />
+          <Route path="/ProjectTime" element={<ProjectTime />} />
+          <Route path="/CommentField" element={<CommentsField />} />
+          <Route path="/ProjectDes" element={<ProjectDes />} />
+          <Route path="/Addassign" element={<Addassign />} />
+          <Route path="/Videolink" element={<Video />} />
+          <Route path="/ProjectAssignment" element={<ProjectAssignments />} />
+          <Route path="/sts" element={<Sts/>} />
+          <Route path="/EB" element={<EB/>} />
+          <Route path="/ProjectroleAdd" element={<ProjectRoleAdd/>} />
+
+          {/* Project Task */}
+
+          <Route path="/Project-task" element={<Index/>} />
+
         </Routes>
       </Router>
     </div>
